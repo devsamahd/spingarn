@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="spingarn.ico" type="image/x-icon">
+    <meta name="description" content="21st century stopwatch x progress recorder">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/css/main.css">
+    <title>Spingarn</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-4 col-s-12 hidetab one">
+            <nav>
+            <img src="spingarn.ico" alt="spingarn" width="45"></nav>
+            <div class="nav">
+                <div class="na-item">New Record+ <span class="new">New</span></div>
+                <div class="na-item">Ongoing Record+ 🔐</div>
+                <div class="na-item">Closed Record+ 🔐</div>
+            </div>
+        </div>
+
+        <!-- //222 -->
+        <div class="col-3 col-s-6 two">
+            <div class="newrec">Add new record+:<input type="text"></div><br><br>
+            <div id="reclist">
+            <div class="newrec-item">
+                <div class="recnam">Your Rec will be here</div>
+                <div class="recdate">Date created here</div>
+            </div>
+            </div>
+           
+            
+        </div>
+
+
+        <!-- //333 -->
+        <div class="col-5 col-s-6 three">
+            <div class="contain-center">
+                <div id="lasttime"></div>
+                <h1 id="time"><span id="min">00</span>:<span id="sec">00</span>:<span id="milisec">00</span></h1>
+                <div class="buttons">
+                    <div class="pause" id="pause"><img src="/pause.svg" alt="play"></div>
+                    <div class="play" id="play"><img src="/play.svg" alt="play"></div>
+                    <div class="stop" id="stop"><img src="/stop.svg" alt="stop"></div>
+                </div>
+            </div>
+            <div class="hr"></div>
+            <div class="below">
+                <h2>Record history:</h2>
+                <div class="record">
+                    <h3>history</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+<script src="scripts/main.js"></script>
