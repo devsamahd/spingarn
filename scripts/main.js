@@ -27,6 +27,18 @@ else{
     localStorage.setItem("spingarnrecords", spingarnrecords)
 }
 
+const reclist = () => {
+    const data = JSON.parse(gettheitem())
+    data.forEach(el => {
+        const view = ` <div class="newrec-item" id="${el.category}">
+        <div class="recnam" id="${el.category}">${el.category}</div>
+        <div class="recdate" id="${el.category}">${el.date}</div>
+    </div>`
+    document.getElementById("reclist").innerHTML += view
+    
+    })
+}
+
 
 const increaseTime = () => {
     milisec++
@@ -89,15 +101,15 @@ const additeration = (updatedcat) => {
 
 
 
-
 //updateview3
 const updateWatch = (id) => {
     document.querySelector(".below").innerHTML = `
     <h2>Record history:</h2>
     <div class="record">
-        <h3>${id}</h3>
+        <h3 id="h3">${id}</h3>
     </div>
 `
+updateIteration(id)
 
 }
 
@@ -124,16 +136,30 @@ const getindexfp = (id) => {
 
 //update array with new value
 const updatethearr = (id, newtime) =>{
-    const prevdata = getspecificdata(id).iterations
-    const newdata = [...prevdata, newtime]
-    gettheitem()
+    let prevdata = getspecificdata(id).iterations
+    let index = getindexfp(id)
+    const gbam = getspecificdata(id).iterations = [...prevdata, newtime]
+    const value = JSON.parse(gettheitem())[index]
+    value.iterations = gbam
+    const val2 = JSON.parse(gettheitem())
+    val2.splice(index, 1)
+    val2.unshift(value)
+    localStorage.setItem("spingarnrecords", JSON.stringify(val2))
+    
+    document.getElementById("reclist").innerHTML = ""
+    reclist()
+    
 }
 
-console.log(getindexfp("new-829"))
 
 //get data for iteration update
-const updateIteration = () => {
-
+const updateIteration = (id) => {
+    document.getElementById("theone").innerHTML = ``
+    const res = getspecificdata(id).iterations
+    console.log(res)
+    res.map(data => {
+        document.getElementById("theone").innerHTML += `${data}<br/>`
+    })
 }
 
 //Add rec
@@ -175,32 +201,17 @@ pause.addEventListener('click',currentTime)
 const stop = document.getElementById("stop")
 stop.addEventListener('click', ()=>{
     const cur = document.getElementById("time").innerText
-    console.log(cur)
+    const tar = document.querySelector(".record h3").innerText
+    updatethearr(tar, cur)
     min= 0
     sec = 0
     milisec = 0
     clearInterval(interval)
-    const myarr = [{
-        id: 1,
-        category: "running"
-    }]
-    // document.getElementById("time").innerHTML = `<span id="min">00</span>:<span id="sec">00</span>:<span id="milisec">00</span>`
-    // localStorage.setItem("spingarnrecords", JSON.stringify(myarr))
-    // let myItems = localStorage.getItem("spingarnrecords")
-    // const res = JSON.parse(myItems)
-    // console.log(res[0].id)
+   
+    document.getElementById("time").innerHTML = `<span id="min">00</span>:<span id="sec">00</span>:<span id="milisec">00</span>`
 })
 
-const reclist = () => {
-    const data = JSON.parse(gettheitem())
-    data.forEach(el => {
-        const view = ` <div class="newrec-item" id=${el.category}>
-        <div class="recnam" id=${el.category}>${el.category}</div>
-        <div class="recdate" id=${el.category}>${el.date}</div>
-    </div>`
-    document.getElementById("reclist").innerHTML += view
-    })
-}
+
 reclist()
 
 const reclistclick = document.querySelector("#reclist")
@@ -212,6 +223,5 @@ reclistclick.addEventListener("click", (e)=> {
     const exisitingdata = filtereddata.iterations
     const id = e.target.id
     
-    updateWatch(id)
-    
+    updateWatch(id) 
 })
