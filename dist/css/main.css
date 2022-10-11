@@ -47,12 +47,18 @@ body {
   background-color: rgb(77, 75, 75);
 }
 .two input {
-  background-color: transparent;
+  background-color: grey;
+  height: 30px;
   border: 0;
   -webkit-box-shadow: 0;
           box-shadow: 0;
   color: white;
+  border-radius: 5px;
   visibility: visible;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .below {
@@ -78,7 +84,7 @@ body {
 }
 
 nav {
-  width: 95%;
+  width: 100%;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -91,6 +97,14 @@ nav {
           justify-content: space-between;
   padding: 5px;
   color: black;
+  font-size: 25px;
+  font-family: "Press Start 2P";
+  text-shadow: -3px 1px 0px #7a7171, -2px 2px 5px #080808;
+}
+
+.footnote {
+  position: fixed;
+  bottom: 50px;
 }
 
 .nav {
@@ -109,7 +123,7 @@ nav {
 
 .newrec {
   width: 100%;
-  height: 50px;
+  height: auto;
   border: 3px dashed grey;
   padding: 5px;
   border-radius: 5px;
@@ -121,7 +135,7 @@ nav {
 .newrec-item {
   background-color: rgb(27, 27, 27);
   width: 100%;
-  height: 60px;
+  height: auto;
   margin-top: 10px;
   padding: 5px;
   border-radius: 5px;
@@ -135,6 +149,13 @@ nav {
 }
 .newrec-item .recdate {
   color: grey;
+}
+
+.footnotepro {
+  background-color: #080808;
+  margin-top: 20px;
+  padding: 10px;
+  bottom: 50px;
 }
 
 [class*=col-] {
@@ -161,6 +182,31 @@ nav {
   }
   .hidetab {
     display: none;
+  }
+  .one, .two {
+    overflow-y: visible;
+    height: auto;
+  }
+  #nav2 {
+    display: contents;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 65px;
+    background-color: white;
+    -webkit-box-pack: auto;
+        -ms-flex-pack: auto;
+            justify-content: auto;
+    padding: 5px;
+    color: black;
+    font-size: 30px;
+    font-family: "Press Start 2P";
+    text-shadow: -3px 1px 0px #7a7171, -2px 2px 5px #080808;
+  }
+  #nav2 div {
+    padding-top: 15px;
+    padding-left: 4%;
   }
 }
 @media only screen and (min-width: 600px) {
@@ -203,6 +249,27 @@ nav {
   .hidetab {
     display: none;
   }
+  #nav2 {
+    display: contents;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 65px;
+    background-color: white;
+    -webkit-box-pack: auto;
+        -ms-flex-pack: auto;
+            justify-content: auto;
+    padding: 5px;
+    color: black;
+    font-size: 30px;
+    font-family: "Press Start 2P";
+    text-shadow: -3px 1px 0px #7a7171, -2px 2px 5px #080808;
+  }
+  #nav2 div {
+    padding-top: 15px;
+    padding-left: 4%;
+  }
 }
 @media only screen and (min-width: 992px) {
   .col-1 {
@@ -243,5 +310,11 @@ nav {
   }
   .hidetab {
     display: initial;
+  }
+  #nav2 {
+    display: none;
+  }
+  .footnotepro {
+    display: none;
   }
 }/*# sourceMappingURL=main.css.map */

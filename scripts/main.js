@@ -123,7 +123,6 @@ const getspecificdata = (id) => {
     })
     return fd[0]
 }
-console.log(getspecificdata("new-80"))
 
 
 //get index for pop - fp means for pop, dfp means data for pop
@@ -148,7 +147,7 @@ const updatethearr = (id, newtime) =>{
     
     document.getElementById("reclist").innerHTML = ""
     reclist()
-    
+    updateIteration(id)
 }
 
 
@@ -156,9 +155,9 @@ const updatethearr = (id, newtime) =>{
 const updateIteration = (id) => {
     document.getElementById("theone").innerHTML = ``
     const res = getspecificdata(id).iterations
-    console.log(res)
-    res.map(data => {
-        document.getElementById("theone").innerHTML += `${data}<br/>`
+   
+    res.map((data, key) => {
+        document.getElementById("theone").innerHTML += `${key+1} - ${data}<br/>`
     })
 }
 
@@ -201,14 +200,19 @@ pause.addEventListener('click',currentTime)
 const stop = document.getElementById("stop")
 stop.addEventListener('click', ()=>{
     const cur = document.getElementById("time").innerText
+    const tarc = document.querySelector(".record h3")
+    if(tarc == undefined){
+    document.getElementById("theone").innerHTML = `no data`
+    }else{
     const tar = document.querySelector(".record h3").innerText
-    updatethearr(tar, cur)
+
+        updatethearr(tar, cur)
     min= 0
     sec = 0
     milisec = 0
     clearInterval(interval)
-   
     document.getElementById("time").innerHTML = `<span id="min">00</span>:<span id="sec">00</span>:<span id="milisec">00</span>`
+    }
 })
 
 

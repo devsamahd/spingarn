@@ -1,3 +1,23 @@
+@mixin nav2 {
+  #nav2{
+    display:contents;
+    display: flex;
+    width: 100%;
+    height: 65px;
+    background-color: white;
+    justify-content: auto;
+    padding: 5px;
+    color:black;
+    font-size: 30px;
+    font-family: 'Press Start 2P';
+    text-shadow: -3px 1px 0px #7a7171, -2px 2px 5px #080808;
+    div{
+      padding-top: 15px;
+      padding-left: 4%;
+    }
+  }
+}
+
 // all
 [class*="col-"] {
     float: left;
@@ -21,6 +41,12 @@
 .hidetab{
   display: none;
 }
+.one, .two{
+  overflow-y: visible;
+  
+  height: auto;
+}
+@include nav2;
 }
 
 // Tablet
@@ -40,6 +66,8 @@
   .hidetab{
     display: none;
   }
+@include nav2;
+
 }
   
 
@@ -59,6 +87,12 @@
     .col-12 {width: 100%;}
     .hidetab{
       display:initial;
+    }
+    #nav2{
+      display: none;
+    }
+    .footnotepro{
+      display: none;
     }
 }
   

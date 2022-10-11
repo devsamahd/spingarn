@@ -33,12 +33,18 @@ body{
 .two{
     background-color: $color2;
     input{
-        background-color: transparent;
+        background-color: grey;
+        height: 30px;
         border: 0;
         box-shadow: 0;
         color: white;
+        border-radius: 5px;
         visibility:visible;
-    }
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+}
     
 }
 .below{
@@ -61,7 +67,7 @@ body{
     height: 100vh;
 }
 nav{
-        width: 95%;
+        width: 100%;
         border-radius: 10px;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
@@ -72,6 +78,14 @@ nav{
         justify-content: space-between;
         padding: 5px;
         color:black;
+        font-size: 25px;
+        font-family: 'Press Start 2P';
+        text-shadow: -3px 1px 0px #7a7171, -2px 2px 5px #080808;
+    }
+
+.footnote{
+    position: fixed;
+    bottom: 50px;
 }
 .nav{
     padding-top: 30px;
@@ -90,7 +104,7 @@ nav{
 }
 .newrec{
     width: 100%;
-    height: 50px;
+    height: auto;
     border: 3px dashed grey;
     padding: 5px;
     border-radius: 5px;
@@ -101,7 +115,7 @@ nav{
     &-item{
         background-color: $color1;
         width: 100%;
-        height: 60px;
+        height: auto;
         margin-top: 10px;
         padding: 5px;
         border-radius: 5px;
@@ -117,5 +131,11 @@ nav{
         }
     }
     
+}
+.footnotepro{
+    background-color: #080808;
+    margin-top: 20px;
+    padding: 10px;
+    bottom: 50px;
 }
 @import './responsive';
